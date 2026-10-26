@@ -145,7 +145,15 @@ def main(page: ft.Page):
                alignment=ft.MainAxisAlignment.CENTER),
 
         # Sezione 3
-
+        ft.Text("Aggiungi Nuovo strumento", size=20),
+        ft.Row(
+            controls=[input_tipo, input_marca, input_anno],
+            alignment=ft.MainAxisAlignment.CENTER
+        ),
+        ft.Row(
+            controls=[ft.Text(" Valore(€):"), btn_meno, input_valore, btn_piu, pulsante_aggiungi],
+            alignment=ft.MainAxisAlignment.CENTER
+        ),
 
         # Sezione 4
         ft.Divider(),
