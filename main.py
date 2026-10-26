@@ -81,6 +81,46 @@ def main(page: ft.Page):
             input_valore.value = "10"
             input_valore.update()
 
+    def aggiungi_strumento(e):
+        tipo = input_tipo.value.strip()
+        marca = input_marca.value.strip()
+        anno_str = input_anno.value.strip()
+        valore_str = input_valore.value.strip()
+
+        if not tipo or not marca or not anno_str or not valore_str:
+            alert.show_alert("❌ Tutti i campi devono essere compilati")
+            return
+
+        try:
+            anno = int(anno_str)
+        except ValueError:
+            alert.show_alert("❌ L'anno di acquisto deve essere un numero intero valido")
+            return
+
+        try:
+            valore = float(valore_str)
+        except ValueError:
+            alert.show_alert("❌ Il valore in euro deve essere un numero valido")
+            return
+
+        try:
+            deposito.aggiungi_strumento(tipo, marca, anno, valore)
+        except Exception as ex:
+            alert.show_alert(f"❌ Errore nell'aggiunta {ex}")
+            return
+
+        input_tipo.value = ""
+        input_marca.value = ""
+        input_anno.value = ""
+        input_valore.value = "100"
+
+        input_tipo.update()
+        input_marca.update()
+        input_anno.update()
+        input_valore.update()
+
+        aggiorna_lista_strumenti()
+
     # --- EVENTI ---
     toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=cambia_tema)
     pulsante_conferma_responsabile = ft.Button("Conferma", on_click=conferma_responsabile)
