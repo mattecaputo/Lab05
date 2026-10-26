@@ -36,7 +36,10 @@ def main(page: ft.Page):
     lista_strumenti = ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True)
 
     # Tutti i TextField per le info necessarie per aggiungere un nuovo strumento (tipo, marca, anno, contatore posti)
-    # TODO
+    input_tipo = ft.TextField ( label = " Tipo ", width = 200)
+    input_marca = ft.TextField ( label = " Marca", width = 200)
+    input_anno = ft.TextField ( label = " Anno di acquisto", width = 200)
+    input_valore = ft.TextField (value = "100", label = " Valore(€)", width = 200, text_align=ft.TextAlign.RIGHT)
 
     # --- FUNZIONI APP ---
     def aggiorna_lista_strumenti():
@@ -55,14 +58,12 @@ def main(page: ft.Page):
         txt_responsabile.value = f"Responsabile: {deposito.get_responsabile()}"
 
     # Handlers per la gestione dei pulsanti utili all'inserimento di un nuovo strumento
-    # TODO
 
     # --- EVENTI ---
     toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=cambia_tema)
     pulsante_conferma_responsabile = ft.Button("Conferma", on_click=conferma_responsabile)
 
     # Pulsanti per la gestione dell'inserimento di un nuovo strumento
-    # TODO
 
     # --- LAYOUT ---
     page.add(
@@ -80,7 +81,7 @@ def main(page: ft.Page):
                alignment=ft.MainAxisAlignment.CENTER),
 
         # Sezione 3
-        # TODO
+
 
         # Sezione 4
         ft.Divider(),
