@@ -126,7 +126,9 @@ def main(page: ft.Page):
     pulsante_conferma_responsabile = ft.Button("Conferma", on_click=conferma_responsabile)
 
     # Pulsanti per la gestione dell'inserimento di un nuovo strumento
-
+    btn_meno = ft.IconButton(icon=ft.Icons.REMOVE, on_click=decrementa_valore)
+    btn_piu = ft.IconButton(icon=ft.Icons.ADD, on_click=incrementa_valore)
+    pulsante_aggiungi = ft.Button("Aggiungi strumento", on_click=aggiungi_strumento)
     # --- LAYOUT ---
     page.add(
         toggle_cambia_tema,
