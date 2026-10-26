@@ -59,6 +59,28 @@ def main(page: ft.Page):
 
     # Handlers per la gestione dei pulsanti utili all'inserimento di un nuovo strumento
 
+    def decrementa_valore(e):
+        try:
+            valore_attuale = float(input_valore.value)
+            if valore_attuale >= 10:
+                input_valore.value = str(valore_attuale - 10)
+                input_valore.update()
+            else:
+                input_valore.value = "0"
+                input_valore.update()
+        except ValueError:
+            input_valore.value = "0"
+            input_valore.update()
+
+    def incrementa_valore(e):
+        try:
+            valore_attuale = float(input_valore.value)
+            input_valore.value = str(valore_attuale + 10)
+            input_valore.update()
+        except ValueError:
+            input_valore.value = "10"
+            input_valore.update()
+
     # --- EVENTI ---
     toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=cambia_tema)
     pulsante_conferma_responsabile = ft.Button("Conferma", on_click=conferma_responsabile)
